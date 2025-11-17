@@ -30,11 +30,11 @@ enum class ELayeredAudioTriggerDirection : uint8
 UENUM(BlueprintType)
 enum class EFortWeaponTriggerType : uint8
 {
-	EFortWeaponTriggerType__OnPress = 0,
-	EFortWeaponTriggerType__Automatic = 1,
-	EFortWeaponTriggerType__OnRelease = 2,
-	EFortWeaponTriggerType__OnPressAndRelease = 3,
-	EFortWeaponTriggerType__EFortWeaponTriggerType_MAX = 4
+	OnPress = 0,
+	Automatic = 1,
+	OnRelease = 2,
+	OnPressAndRelease = 3,
+	EFortWeaponTriggerType_MAX = 4,
 };
 
 UENUM(BlueprintType)
@@ -626,20 +626,16 @@ enum class EAthenaGamePhase : uint8
 };
 
 UENUM(BlueprintType)
-enum class EFortRarity : uint8
-{
-	Handmade          = 0,
-	Ordinary          = 1,
-	Sturdy            = 2,
-	Quality           = 3,
-	Fine              = 4,
-	Elegant           = 5,
-	Masterwork        = 6,
-	Epic              = 7,
-	Badass            = 8,
-	Legendary         = 9,
-	NumRarityValues   = 10,
-	EFortRarity_MAX   = 11
+enum class EFortRarity : uint8 {
+    Common,
+    Uncommon,
+    Rare,
+    Epic,
+    Legendary,
+    Mythic,
+    Transcendent,
+    Unattainable,
+    NumRarityValues,
 };
 
 UENUM(BlueprintType)
@@ -1014,24 +1010,29 @@ enum class EAnimRelaxedState : uint8
 };
 
 UENUM()
-enum class EFortReloadFXState : uint8 
+namespace EFortReloadFXState
 {
-	ReloadStart,
-	ReloadCartridge,
-	ReloadEnd,
-	Max_None,
-	EFortReloadFXState_MAX,
-};
+	enum Type {
+		ReloadStart,
+		ReloadCartridge,
+		ReloadEnd,
+		Max_None,
+		EFortReloadFXState_MAX,
+	};
+}
 
 UENUM()
-enum class EFortWeaponSoundState : uint8 
+namespace EFortWeaponSoundState
 {
-	Normal,
-	LowAmmo,
-	Degraded,
-	Max_None,
-	EFortWeaponSoundState_MAX,
-};
+	enum Type {
+		Normal,
+		LowAmmo,
+		Degraded,
+		Max_None,
+		EFortWeaponSoundState_MAX,
+	};
+}
+
 UENUM()
 enum class EFortDisplayTier : uint8 
 {
